@@ -13,6 +13,7 @@
 		3763DF622C11ECD000F4EC5B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3763DF612C11ECD000F4EC5B /* Base */; };
 		3763DF642C11ECD200F4EC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3763DF632C11ECD200F4EC5B /* Assets.xcassets */; };
 		3763DF672C11ECD200F4EC5B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3763DF662C11ECD200F4EC5B /* Base */; };
+		3763DF712C120C6D00F4EC5B /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763DF702C120C6D00F4EC5B /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3763DF632C11ECD200F4EC5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3763DF662C11ECD200F4EC5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3763DF682C11ECD200F4EC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3763DF702C120C6D00F4EC5B /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		3763DF4E2C11ECD000F4EC5B = {
 			isa = PBXGroup;
 			children = (
+				3763DF702C120C6D00F4EC5B /* ChecklistItem.swift */,
 				3763DF592C11ECD000F4EC5B /* TimmiesRun */,
 				3763DF582C11ECD000F4EC5B /* Products */,
 			);
@@ -141,6 +144,7 @@
 				3763DF5F2C11ECD000F4EC5B /* TimmiesViewController.swift in Sources */,
 				3763DF5B2C11ECD000F4EC5B /* AppDelegate.swift in Sources */,
 				3763DF5D2C11ECD000F4EC5B /* SceneDelegate.swift in Sources */,
+				3763DF712C120C6D00F4EC5B /* ChecklistItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +302,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,7 +329,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
