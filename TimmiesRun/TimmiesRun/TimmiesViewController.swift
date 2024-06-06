@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimmiesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
