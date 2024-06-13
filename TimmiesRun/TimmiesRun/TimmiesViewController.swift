@@ -25,6 +25,20 @@ class TimmiesViewController: UITableViewController, AddItemViewControllerDelegat
         navigationController?.popViewController(animated: true)
     }
     
+    func addItemViewController(
+      _ controller: AddItemViewController,
+      didFinishEditing item: ChecklistItem
+    ) {
+      if let index = items.firstIndex(of: item) {
+        let indexPath = IndexPath(row: index, section: 0)
+        if let cell = tableView.cellForRow(at: indexPath) {
+          configureText(for: cell, with: item)
+        }
+      }
+      navigationController?.popViewController(animated: true)
+    }
+
+    
     var items = [ChecklistItem]()
     
     override func viewDidLoad() {
@@ -117,10 +131,13 @@ class TimmiesViewController: UITableViewController, AddItemViewControllerDelegat
         for cell: UITableViewCell,
         with item: ChecklistItem
     ) {
-        if item.checked {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
+        let label = cell.viewWithTag(1001) as! UILabel
+        
+        if item.checked{
+            label.text = "✔️"
+        }
+        else {
+            label.text = ""
         }
     }
     
@@ -146,12 +163,17 @@ class TimmiesViewController: UITableViewController, AddItemViewControllerDelegat
         for segue: UIStoryboardSegue,
         sender: Any?
     ) {
-        // 1
         if segue.identifier == "AddItem" {
-            // 2
             let controller = segue.destination as! AddItemViewController
-            // 3
             controller.delegate = self
+        }
+        else if segue.identifier == "EditItem" {
+            let controller = segue.destination as! AddItemViewController
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
     
