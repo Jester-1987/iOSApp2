@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t7O-4a-f8H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UuE-hE-XZg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Timmies View Controller-->
+        <!--Timmies Run-->
         <scene sceneID="oAU-LW-kb2">
             <objects>
                 <tableViewController id="t7O-4a-f8H" customClass="TimmiesViewController" customModule="TimmiesRun" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,8 +39,73 @@
                             <outlet property="delegate" destination="t7O-4a-f8H" id="Bzy-QZ-0mk"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Timmies Run" id="1Gh-mJ-USI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J3z-w7-enl">
+                            <connections>
+                                <segue destination="1Og-Nf-2cX" kind="show" id="Trz-BY-Ghi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNf-FW-fMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987.02290076335873" y="-132.3943661971831"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="kzc-El-KJg">
+            <objects>
+                <tableViewController id="1Og-Nf-2cX" customClass="AddItemViewController" customModule="TimmiesRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="s5I-D8-LkP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6gz-Ql-AxQ">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gz-Ql-AxQ" id="Xro-AX-Yd6">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Og-Nf-2cX" id="Lit-nz-j1w"/>
+                            <outlet property="delegate" destination="1Og-Nf-2cX" id="ANk-RV-gZG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="4nA-kT-FYl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1by-Xv-hrz">
+                            <connections>
+                                <action selector="cancel" destination="1Og-Nf-2cX" id="Q6S-wt-hY3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="psA-Z7-Amk">
+                            <connections>
+                                <action selector="done" destination="1Og-Nf-2cX" id="wpv-jJ-Dt0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OdQ-A3-0lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1903" y="-132"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sWS-Qm-3Mw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UuE-hE-XZg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qaE-N5-8xU">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t7O-4a-f8H" kind="relationship" relationship="rootViewController" id="Qsa-mO-NyN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wf-lk-jdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="60.305343511450381" y="-132.3943661971831"/>
         </scene>
