@@ -7,12 +7,24 @@
 
 import UIKit
 
+// delegate protocol
+protocol AddItemViewControllerDelegate: AnyObject {
+    func addItemViewControllerDidCancel(
+        _ controller: AddItemViewController)
+    func addItemViewController(
+        _ controller: AddItemViewController,
+        didFinishAdding item: ChecklistItem
+    )
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     // Text field outlet
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +42,15 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     // cancel button
     @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     // done button
     @IBAction func done() {
-        // test print to terminal
-        print("Contents of the text field: \(textField.text!)")
+        let item = ChecklistItem()
+        item.text = textField.text!
         
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewController(self, didFinishAdding: item)
     }
     
     // MARK: - Table View Delegates
@@ -75,7 +87,5 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = false
         return true
     }
-   
-    
 
 }

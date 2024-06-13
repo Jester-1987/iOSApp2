@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" title="Timmies Run" id="1Gh-mJ-USI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J3z-w7-enl">
                             <connections>
-                                <segue destination="1Og-Nf-2cX" kind="show" id="Trz-BY-Ghi"/>
+                                <segue destination="1Og-Nf-2cX" kind="show" identifier="AddItem" id="Trz-BY-Ghi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
