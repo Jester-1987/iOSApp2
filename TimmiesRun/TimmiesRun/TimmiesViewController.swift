@@ -7,15 +7,15 @@
 
 import UIKit
 
-class TimmiesViewController: UITableViewController, AddItemViewControllerDelegate {
+class TimmiesViewController: UITableViewController, itemDetailViewControllerDelegate {
     
     // MARK: - Add Item View Controller Delegates
     
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         
@@ -25,8 +25,8 @@ class TimmiesViewController: UITableViewController, AddItemViewControllerDelegat
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(
-      _ controller: AddItemViewController,
+    func itemDetailViewController(
+      _ controller: ItemDetailViewController,
       didFinishEditing item: ChecklistItem
     ) {
       if let index = items.firstIndex(of: item) {
@@ -164,11 +164,11 @@ class TimmiesViewController: UITableViewController, AddItemViewControllerDelegat
         sender: Any?
     ) {
         if segue.identifier == "AddItem" {
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
         }
         else if segue.identifier == "EditItem" {
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
             
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
