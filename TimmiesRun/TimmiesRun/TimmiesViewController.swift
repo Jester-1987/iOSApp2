@@ -8,6 +8,7 @@
 import UIKit
 
 class TimmiesViewController: UITableViewController, itemDetailViewControllerDelegate {
+    var checklist: Checklist!
     
     // MARK: - Add Item View Controller Delegates
     
@@ -23,6 +24,7 @@ class TimmiesViewController: UITableViewController, itemDetailViewControllerDele
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
+        saveChecklistItems()
     }
     
     func itemDetailViewController(
@@ -36,6 +38,7 @@ class TimmiesViewController: UITableViewController, itemDetailViewControllerDele
         }
       }
       navigationController?.popViewController(animated: true)
+      saveChecklistItems()
     }
 
     
@@ -43,30 +46,12 @@ class TimmiesViewController: UITableViewController, itemDetailViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true // large title shown in navigation bar
+        // Disable large titles for this view controller
+        navigationItem.largeTitleDisplayMode = .never
         
-        
-        let item1 = ChecklistItem()
-        item1.text = "Medium Double Double"
-        items.append(item1)
-        
-        let item2 = ChecklistItem()
-        item2.text = "Large English Breakfast Tea"
-        items.append(item2)
-        
-        let item3 = ChecklistItem()
-        item3.text = "Small Iced Capp"
-        items.append(item3)
-        
-        let item4 = ChecklistItem()
-        item4.text = "Box of 20 TimBits"
-        items.append(item4)
-        
-        let item5 = ChecklistItem()
-        item5.text = "Boston Cream Donut"
-        items.append(item5)
+        title = checklist.name
     }
-    
+   
     var row0item = ChecklistItem()
     var row1item = ChecklistItem()
     var row2item = ChecklistItem()
@@ -108,6 +93,7 @@ class TimmiesViewController: UITableViewController, itemDetailViewControllerDele
             configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        saveChecklistItems()
     }
     
     // swipe to delete
@@ -123,7 +109,60 @@ class TimmiesViewController: UITableViewController, itemDetailViewControllerDele
         // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveChecklistItems()
     }
+    
+    // file saving
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask)
+        return paths [0]
+    }
+    
+    func saveChecklistItems() {
+      // 1
+      let encoder = PropertyListEncoder()
+      // 2
+      do {
+        // 3
+        let data = try encoder.encode(items)
+        // 4
+        try data.write(
+          to: dataFilePath(),
+          options: Data.WritingOptions.atomic)
+        // 5
+      } catch {
+        // 6
+        print("Error encoding item array: \(error.localizedDescription)")
+      }
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Timmiesrun.plist")
+    }
+    
+    // loading items
+    
+    func loadChecklistItems() {
+      // 1
+      let path = dataFilePath()
+      // 2
+      if let data = try? Data(contentsOf: path) {
+        // 3
+        let decoder = PropertyListDecoder()
+        do {
+          // 4
+          items = try decoder.decode(
+            [ChecklistItem].self,
+            from: data)
+        } catch {
+          print("Error decoding item array: \(error.localizedDescription)")
+        }
+      }
+    }
+
     
     // configure checkmarks
     
