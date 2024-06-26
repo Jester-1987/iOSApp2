@@ -8,12 +8,12 @@
 import UIKit
 
 class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
-
     let cellIdentifier = "ChecklistCell"
     var lists = [Checklist]()  // array to storenew Checklist objects
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         navigationController?.navigationBar.prefersLargeTitles = true // large title shown in navigation bar
     
@@ -49,7 +49,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         // update cell information
         let checklist = lists[indexPath.row]
         cell.textLabel!.text = checklist.name
-        cell.accessoryType = .detailDisclosureButton     
+        cell.accessoryType = .detailDisclosureButton
         
         return cell
     }
@@ -61,7 +61,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let checklist = lists[indexPath.row]
       performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
-    
+   
     // lets user delete checklists
     
     override func tableView(
@@ -73,6 +73,22 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    override func tableView(
+      _ tableView: UITableView,
+      accessoryButtonTappedForRowWith indexPath: IndexPath
+    ) {
+      let controller = storyboard!.instantiateViewController(
+        withIdentifier: "ListDetailViewController") as! ListDetailViewController
+      controller.delegate = self
+
+      let checklist = lists[indexPath.row]
+      controller.checklistToEdit = checklist
+
+      navigationController?.pushViewController(
+        controller,
+        animated: true)
     }
     
     // MARK: - Navigation
@@ -96,9 +112,9 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
       navigationController?.popViewController(animated: true)
     }
 
-    @objc(listDetailViewController:didFinishAdding:) func listDetailViewController(
+    @objc(listDetailViewController:didFinishEditing:) func listDetailViewController(
         _ controller: ListDetailViewController,
-        didFinishAdding checklist: Checklist
+        didFinishEditing checklist: Checklist
     ) {
       let newRowIndex = lists.count
       lists.append(checklist)
@@ -110,9 +126,9 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
       navigationController?.popViewController(animated: true)
     }
 
-    @objc(listDetailViewController:didFinishEditiing:) func listDetailViewController(
+    @objc(listDetailViewController:didFinishAdding:) func listDetailViewController(
         _ controller: ListDetailViewController,
-        didFinishEditiing checklist: Checklist
+        didFinishAdding checklist: Checklist
     ) {
       if let index = lists.firstIndex(of: checklist) {
         let indexPath = IndexPath(row: index, section: 0)
