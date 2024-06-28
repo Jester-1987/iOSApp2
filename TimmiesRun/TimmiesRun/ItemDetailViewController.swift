@@ -30,13 +30,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     weak var delegate: itemDetailViewControllerDelegate?
-    
     var itemToEdit: ChecklistItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never // never display large title
-        
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.text
@@ -92,7 +90,9 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     ) -> Bool {
         let oldText = textField.text!
         let stringRange = Range(range, in:oldText)!
-        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        let newText = oldText.replacingCharacters(
+            in: stringRange,
+            with: string)
         if newText.isEmpty {
             doneBarButton.isEnabled = false
         } else {

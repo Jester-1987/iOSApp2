@@ -49,7 +49,7 @@
                             <outlet property="delegate" destination="t7O-4a-f8H" id="Bzy-QZ-0mk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="(Name of the Checklist)" largeTitleDisplayMode="never" id="1Gh-mJ-USI">
+                    <navigationItem key="navigationItem" title="Items to Order" largeTitleDisplayMode="never" id="1Gh-mJ-USI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J3z-w7-enl">
                             <connections>
                                 <segue destination="1Og-Nf-2cX" kind="show" identifier="AddItem" id="Trz-BY-Ghi"/>
@@ -139,7 +139,7 @@
                             <outlet property="delegate" destination="2e3-Um-v6D" id="7E4-Rt-VPT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="8Ym-3w-xcc">
+                    <navigationItem key="navigationItem" title="Orders" id="8Ym-3w-xcc">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7AO-47-909">
                             <connections>
                                 <segue destination="wQA-BU-UWl" kind="show" identifier="AddChecklist" id="J3N-lG-7D6"/>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="118" y="-132"/>
         </scene>
-        <!--Add Checklist-->
+        <!--Add New Order-->
         <scene sceneID="zLM-IJ-wSx">
             <objects>
                 <tableViewController id="wQA-BU-UWl" customClass="ListDetailViewController" customModule="TimmiesRun" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,10 +173,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="32"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the list" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nbq-Aq-2d8">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="This is an order for..." textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nbq-Aq-2d8">
                                                     <rect key="frame" x="20" y="4" width="353" height="22.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="wQA-BU-UWl" eventType="editingDidEndOnExit" id="5Ov-Ff-sJk"/>
+                                                        <outlet property="delegate" destination="wQA-BU-UWl" id="n4i-5o-lfT"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -195,13 +199,13 @@
                             <outlet property="delegate" destination="wQA-BU-UWl" id="Rvh-6S-5eG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Checklist" largeTitleDisplayMode="never" id="UmT-dT-Njr">
+                    <navigationItem key="navigationItem" title="Add New Order" largeTitleDisplayMode="never" id="UmT-dT-Njr">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lBb-EW-BoU">
                             <connections>
                                 <action selector="cancel" destination="wQA-BU-UWl" id="AgK-bR-PEf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="jey-jh-HZf">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="jey-jh-HZf">
                             <connections>
                                 <action selector="done" destination="wQA-BU-UWl" id="Cs5-ei-GkX"/>
                             </connections>
@@ -209,7 +213,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="jey-jh-HZf" id="aps-En-4Q8"/>
-                        <outlet property="textField" destination="Nbq-Aq-2d8" id="8dH-pe-cu6"/>
+                        <outlet property="textField" destination="Nbq-Aq-2d8" id="wWq-yA-hwk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVH-cc-Ifh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
