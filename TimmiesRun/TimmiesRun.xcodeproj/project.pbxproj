@@ -68,21 +68,45 @@
 		3763DF592C11ECD000F4EC5B /* TimmiesRun */ = {
 			isa = PBXGroup;
 			children = (
-				37C7E85E2C2465C8001E9887 /* Checklist.swift */,
-				3763DF702C120C6D00F4EC5B /* ChecklistItem.swift */,
+				3763DF682C11ECD200F4EC5B /* Info.plist */,
 				3763DF5A2C11ECD000F4EC5B /* AppDelegate.swift */,
 				3763DF5C2C11ECD000F4EC5B /* SceneDelegate.swift */,
-				37C7E85C2C2463AE001E9887 /* TimmiesViewController.swift */,
-				3763DF602C11ECD000F4EC5B /* Main.storyboard */,
-				3763DF632C11ECD200F4EC5B /* Assets.xcassets */,
-				3763DF652C11ECD200F4EC5B /* LaunchScreen.storyboard */,
-				3763DF682C11ECD200F4EC5B /* Info.plist */,
-				37A1580D2C1B208600008F86 /* ItemDetailViewController.swift */,
-				377141422C2457B600535E73 /* AllListsViewController.swift */,
-				37C7E8602C2478AC001E9887 /* ListDetailViewController.swift */,
-				379F55F72C2EFD6100ECF385 /* DataModel.swift */,
+				37ECC36A2C318D5300763536 /* Data Models */,
+				37ECC36C2C318DC800763536 /* Resources */,
+				37ECC36B2C318D8B00763536 /* View Controllers */,
 			);
 			path = TimmiesRun;
+			sourceTree = "<group>";
+		};
+		37ECC36A2C318D5300763536 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				379F55F72C2EFD6100ECF385 /* DataModel.swift */,
+				3763DF702C120C6D00F4EC5B /* ChecklistItem.swift */,
+				37C7E85E2C2465C8001E9887 /* Checklist.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		37ECC36B2C318D8B00763536 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				37C7E8602C2478AC001E9887 /* ListDetailViewController.swift */,
+				377141422C2457B600535E73 /* AllListsViewController.swift */,
+				37C7E85C2C2463AE001E9887 /* TimmiesViewController.swift */,
+				37A1580D2C1B208600008F86 /* ItemDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		37ECC36C2C318DC800763536 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3763DF602C11ECD000F4EC5B /* Main.storyboard */,
+				3763DF652C11ECD200F4EC5B /* LaunchScreen.storyboard */,
+				3763DF632C11ECD200F4EC5B /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
