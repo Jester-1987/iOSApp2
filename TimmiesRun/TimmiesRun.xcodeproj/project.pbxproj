@@ -19,6 +19,7 @@
 		37C7E85D2C2463AE001E9887 /* TimmiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E85C2C2463AE001E9887 /* TimmiesViewController.swift */; };
 		37C7E85F2C2465C8001E9887 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E85E2C2465C8001E9887 /* Checklist.swift */; };
 		37C7E8612C2478AC001E9887 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E8602C2478AC001E9887 /* ListDetailViewController.swift */; };
+		37ECC36E2C319CBF00763536 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ECC36D2C319CBF00763536 /* IconPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		37C7E85C2C2463AE001E9887 /* TimmiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimmiesViewController.swift; sourceTree = "<group>"; };
 		37C7E85E2C2465C8001E9887 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		37C7E8602C2478AC001E9887 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		37ECC36D2C319CBF00763536 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				377141422C2457B600535E73 /* AllListsViewController.swift */,
 				37C7E85C2C2463AE001E9887 /* TimmiesViewController.swift */,
 				37A1580D2C1B208600008F86 /* ItemDetailViewController.swift */,
+				37ECC36D2C319CBF00763536 /* IconPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				37C7E85D2C2463AE001E9887 /* TimmiesViewController.swift in Sources */,
 				37A1580E2C1B208600008F86 /* ItemDetailViewController.swift in Sources */,
 				377141432C2457B600535E73 /* AllListsViewController.swift in Sources */,
+				37ECC36E2C319CBF00763536 /* IconPickerViewController.swift in Sources */,
 				3763DF5B2C11ECD000F4EC5B /* AppDelegate.swift in Sources */,
 				3763DF5D2C11ECD000F4EC5B /* SceneDelegate.swift in Sources */,
 				37C7E8612C2478AC001E9887 /* ListDetailViewController.swift in Sources */,
@@ -343,7 +347,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimmiesRun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -370,7 +374,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimmiesRun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
